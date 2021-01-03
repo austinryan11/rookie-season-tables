@@ -1,18 +1,6 @@
 # rookie-season-tables
 Joining draft pick and pbp data to make pretty tables
 
----
-title: "rookie_szn_tbls"
-author: "packeRanalytics"
-date: "1/3/2021"
-output: 
-  html_document:
-      keep_md: true
-  
----
-
-
-
 ## Introduction
 This guide will show you how to make tables like this one.
 ![Table.](best_rookie_QB_szns.png)
