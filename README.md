@@ -253,7 +253,3 @@ link_to_img <- function(x, width = 50) {
 # Save table as png
   gtsave(tbl, filename = "best_rookie_QB_szns.png")
 ```
-
-![](rookie_szn_tbls_files/figure-html/unnamed-chunk-12-1.png)<!-- -->
-
-![Table.](best_rookie_QB_szns.png)
