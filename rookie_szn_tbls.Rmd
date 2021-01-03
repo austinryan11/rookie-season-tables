@@ -19,7 +19,7 @@ knitr::opts_chunk$set(
 
 ## Introduction
 This guide will show you how to make tables like this one.
-![Table 1.](tbl_qbs.jpg)
+![Table 1.]ex_png.png)
 
 The following assumes you have some familiarity with nflfastR. If you don't but are interested in learning more I recommend starting with [Ben Baldwin's nflfastR begginer's guide](https://www.nflfastr.com/articles/beginners_guide.html) or [Lee Sharpe's R and RStudio Intro](https://github.com/leesharpe/nfldata/blob/master/RSTUDIO-INTRO.md#r-and-rstudio-introduction).
 
@@ -59,7 +59,6 @@ pbp <- purrr::map_df(seasons, function(x) {
 ```
 
 Great! We have draft pick data and play-by-play data going back to the year 2000 season. Now let's aggregate statistics by qb and season.
-
 ```{r}
 # Summarize seasons from nflfastR
   pbp <- pbp %>% 
@@ -88,7 +87,6 @@ Great! We have draft pick data and play-by-play data going back to the year 2000
       qbr_name = paste(substr(name, 1, 2), substr(name, 3, nchar(name)))
     ) 
 ```
-
 
 Let's bring in QBR data from espnscrapeR which also contains links to qb headshot urls. Note QBR does not exist prior to 2006.
 ```{r}
@@ -182,7 +180,6 @@ link_to_img <- function(x, width = 50) {
   }
   
   tbl <- df %>% 
-    mutate(rank = row_number()) %>% 
     filter(rank <=10) %>% 
     gt() %>% 
     tab_header(
@@ -253,6 +250,10 @@ link_to_img <- function(x, width = 50) {
     cols_align(align = "center",
                columns = vars(team_logo_espn, qb_epa, cpoe, qbr_total))
   
-  tbl
+```
+```{r}
+# Save table as png
+  gtsave(tbl, filename = "best_rookie_QB_szns.png")
 ```
 
+![Table.](best_rookie_QB_szns.png)
